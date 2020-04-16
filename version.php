@@ -5,7 +5,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version    = 2020041500;
+$plugin->version    = 2020041600;
 $plugin->requires   = 2013051401;
 $plugin->component  = 'enrol_flutterwave';
 $plugin->maturity   = MATURITY_STABLE;
