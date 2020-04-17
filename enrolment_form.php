@@ -1,6 +1,4 @@
 <?php
-define('NO_DEBUG_DISPLAY', true);
-
 require("../../config.php");
 require_once("lib.php");
 require_once($CFG->libdir.'/enrollib.php');

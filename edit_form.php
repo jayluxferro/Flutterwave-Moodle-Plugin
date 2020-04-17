@@ -16,7 +16,7 @@ class enrol_flutterwave_edit_form extends moodleform {
         list($instance, $plugin, $context) = $this->_customdata;
 
         $mform->addElement('header', 'header', get_string('pluginname', 'enrol_flutterwave'));
-
+        
         $mform->addElement('text', 'name', get_string('custominstancename', 'enrol'));
         $mform->setType('name', PARAM_TEXT);
         $options = array(ENROL_INSTANCE_ENABLED  => get_string('yes'),
