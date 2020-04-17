@@ -1,5 +1,4 @@
 <?php
-require("../../config.php");
 require_once("lib.php");
 require_once($CFG->libdir.'/enrollib.php');
 require_once($CFG->libdir . '/filelib.php');
@@ -104,11 +103,12 @@ $publicKey = $this->get_config('pubKey');
 
 
 <script>
+  // hiding loaderView
+  document.getElementById('loaderView').style.display = 'none'
+  
   function payWithRave() {
     const url = window.location.href
     
-    // hiding loaderView
-    document.getElementById('loaderView').style.display = 'none'
 
     var x = getpaidSetup({
         PBFPubKey: '<?php echo $publicKey; ?>',
