@@ -6,7 +6,7 @@ require_once($CFG->libdir . '/filelib.php');
 require_login();
 
 global $DB, $CFG;
-$amount = $this->get_config('cost');
+$amount = $cost;
 $publicKey = $this->get_config('pubKey');
 ?>
 <!-- pay now -->
@@ -30,7 +30,7 @@ $publicKey = $this->get_config('pubKey');
 <?php
     if(isset($_POST['responseData'])){
       $data = json_decode($_POST['responseData'], true);
-      $amount = $data['amount'];
+      $paid_amount = $data['amount'];
       $app_fee = $data['appfee'];
       $payment_status = $data['status']; // successful
       $response_code = (int)$data['chargeResponseCode'];
@@ -49,7 +49,7 @@ $publicKey = $this->get_config('pubKey');
       $tx_ref = $data['txRef'];
       
       $enrolflutterwave = new stdClass();
-      $enrolflutterwave->amount = $amount;
+      $enrolflutterwave->amount = $paid_amount;
       $enrolflutterwave->app_fee = $app_fee;
       $enrolflutterwave->payment_status = $payment_status;
       $enrolflutterwave->response_code = $response_code;
@@ -93,11 +93,17 @@ $publicKey = $this->get_config('pubKey');
       }
       $plugin = enrol_get_plugin('flutterwave');
       /* Enrol User */
-      $plugin->enrol_user($plugininstance, $USER->id, $plugininstance->roleid, $timestart, $timeend);
-      echo "<script type='text/javascript'>
-              swal('Success', 'Payment successful', 'success');
-             window.location.href='.$CFG->wwwroot.'/course/view.php?id='. $instance->courseid;
-             </script>";
+      if((float) $paid_amount >= (float) $cost){
+        $plugin->enrol_user($plugininstance, $USER->id, $plugininstance->roleid, $timestart, $timeend);
+        echo "<script type='text/javascript'>
+                swal('Success', 'Payment successful', 'success');
+               window.location.href='.$CFG->wwwroot.'/course/view.php?id='. $instance->courseid;
+               </script>";
+      }else{
+        echo "<script type='text/javascript'>
+                swal('Error', 'Payment failed. Try again!', 'error');
+               </script>";
+      }
     }
 ?>
 
@@ -115,7 +121,6 @@ $publicKey = $this->get_config('pubKey');
         customer_email: "test_api@sperixlabs.org",
         amount: <?php echo $amount; ?>,
         currency: "<?php echo $instance->currency; ?>",
-        //country: "GH",
         txref: new Date().getTime().toString(),
         onclose: function() {
           setTimeout( () => window.location.assign(url), 1000)

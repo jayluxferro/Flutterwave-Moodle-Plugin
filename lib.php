@@ -171,13 +171,13 @@ class enrol_flutterwave_plugin extends enrol_plugin {
             $cost = (float) $instance->cost;
         }
 
-        if (abs($cost) < 0.01) {
+        if (abs($cost) < 1.00) {
             // No cost, other enrolment methods (instances) should be used.
             echo '<p>'.get_string('nocost', 'enrol_flutterwave').'</p>';
         } else {
 
-            // Calculate localised and "." cost, make sure we send Authorize.net the same value,
-            // please note Authorize.net expects amount with 2 decimal places and "." separator.
+            // Calculate localised and "." cost, make sure we send Flutterwave the same value,
+            // please note Flutterwave expects amount with 2 decimal places and "." separator.
             $localisedcost = format_float($cost, 2, true);
             $cost = format_float($cost, 2, false);
 
