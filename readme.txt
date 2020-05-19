@@ -10,7 +10,7 @@ Log in to your moodle site as an "admin user" and follow the following steps:
 
 2. Go to Enrolments -> Manage enrol plugins -> Enable 'flutterwave' from list.
 
-3. Click 'Settigns' which will lead to the settings page of the plugin.
+3. Click 'Settings' which will lead to the settings page of the plugin.
 
 4. Provide merchant publick key for Flutterwave, select the checkbox as per requirement. Save the settings.
 

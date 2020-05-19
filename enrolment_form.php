@@ -14,7 +14,7 @@ $publicKey = $this->get_config('pubKey');
   <form>
       <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
       <button type="button" onClick="payWithRave()">
-      <img src="<?php echo $CFG->wwwroot; ?>/enrol/flutterwave/pix/paynow.png" style="width: 40%; height: 'auto'; padding: 10px;">
+      <img src="<?php echo $CFG->wwwroot; ?>/enrol/flutterwave/pix/paynow.png" style="width: 80%; height: 'auto'; padding: 10px;">
       </button>
   </form>
 </div>
