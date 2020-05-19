@@ -19,3 +19,5 @@ Log in to your moodle site as an "admin user" and follow the following steps:
 6. Go to Course Administration -> Users -> Enrolment Methods -> Add method 'flutterwave' from the dropdown. Set 'Custom instance name', 'Enrol cost' etc and add the method.
 
 This completes all the steps for the administrator's end. Now registered users can login to the Moodle site and view the course after a successful payment.
+
+https://youtu.be/4xw4dimDa5k
