@@ -6,9 +6,9 @@ Installation Guidance:
 
 Log in to your moodle site as an "admin user" and follow the following steps:
 
-1. Upload the zip package from Site Administration > Plugins -> Install Plugins. Choose Plugin type 'Enrolment method (enrol)'. Upload the ZiP package, check the acknowledgement and install.
+1. Download the plugin as a ZIP package. Upload the zip package from Site Administration > Plugins -> Install Plugins. Choose Plugin type. Upload the ZIP package, check the acknowledgement and install.
 
-2. Go to Enrolments -> Manage enrol plugins -> Enable 'flutterwave' from list.
+2. Go to Plugins -> Enrolments -> Manage enrol plugins -> Enable 'flutterwave' from list.
 
 3. Click 'Settings' which will lead to the settings page of the plugin.
 

@@ -8,8 +8,10 @@ require_login();
 global $DB, $CFG;
 $amount = $cost;
 $publicKey = $this->get_config('pubKey');
+$mail = $this->get_config('email');
 ?>
 <!-- pay now -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
  <div style="text-align: center" id="raveView">
   <form>
       <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
@@ -118,7 +120,7 @@ $publicKey = $this->get_config('pubKey');
 
     var x = getpaidSetup({
         PBFPubKey: '<?php echo $publicKey; ?>',
-        customer_email: "test_api@sperixlabs.org",
+        customer_email: "<?php echo $mail; ?>",
         amount: <?php echo $amount; ?>,
         currency: "<?php echo $instance->currency; ?>",
         txref: new Date().getTime().toString(),
@@ -126,6 +128,7 @@ $publicKey = $this->get_config('pubKey');
           setTimeout( () => window.location.assign(url), 1000)
         },
         callback: function(response) {
+          //console.log(response)
           //setTimeout( () =>  { x.close(); window.location.assign(url) }, 1000)
           // hide raveView
           document.getElementById('raveView').style.display = 'none'
@@ -134,8 +137,8 @@ $publicKey = $this->get_config('pubKey');
           document.getElementById('loaderView').style.display = 'block'
           
           if (
-              response.tx.chargeResponseCode == "00" ||
-              response.tx.chargeResponseCode == "0"
+              response.data.respcode == "00" ||
+              response.data.respcode == "0"
           ) {
               // redirect to a success page
                 document.getElementById('responseData').value = JSON.stringify(response.tx)

@@ -7,7 +7,7 @@ class enrol_flutterwave_plugin extends enrol_plugin {
      * @return $currencies
      */
     public function get_currencies() {
-        $codes = array('GHS', 'USD');
+        $codes = array('GHS', 'USD', 'EUR', 'GBP', 'KES', 'NGN', 'RWF', 'SLL', 'TZS', 'UGX', 'XOF', 'ZAR');
         $currencies = array();
         foreach ($codes as $c) {
             $currencies[$c] = new lang_string($c, 'core_currencies');

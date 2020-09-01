@@ -16,7 +16,10 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configtext('enrol_flutterwave/pubKey',
                    get_string('pubKey', 'enrol_flutterwave'),
                    'Paste Payment Public Key here', '', PARAM_RAW));
-    
+    $settings->add(new admin_setting_configtext('enrol_flutterwave/email',
+                   get_string('email', 'enrol_flutterwave'),
+                   'Email Address', '', PARAM_RAW));
+    /* 
     $settings->add(new admin_setting_configcheckbox('enrol_flutterwave/checkproductionmode',
                    get_string('checkproductionmode', 'enrol_flutterwave'), '', 0));
     $settings->add(new admin_setting_configcheckbox('enrol_flutterwave/mailstudents',
@@ -24,7 +27,8 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configcheckbox('enrol_flutterwave/mailteachers',
                    get_string('mailteachers', 'enrol_flutterwave'), '', 0));
     $settings->add(new admin_setting_configcheckbox('enrol_flutterwave/mailadmins',
-                   get_string('mailadmins', 'enrol_flutterwave'), '', 0));
+      get_string('mailadmins', 'enrol_flutterwave'), '', 0));
+     */
 
     // Note: let's reuse the ext sync constants and strings here, internally it is very similar,
     //       it describes what should happen when users are not supposed to be enrolled any more.
