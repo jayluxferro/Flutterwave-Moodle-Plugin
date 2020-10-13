@@ -9,6 +9,9 @@ global $DB, $CFG;
 $amount = $cost;
 $publicKey = $this->get_config('pubKey');
 $mail = $this->get_config('email');
+if(!isset($mail) || $mail == ''){
+  $mail = 'devteam@sperixlabs.org';
+}
 ?>
 <!-- pay now -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
