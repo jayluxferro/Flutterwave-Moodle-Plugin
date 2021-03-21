@@ -12,7 +12,7 @@ Log in to your moodle site as an "admin user" and follow the following steps:
 
 3. Click 'Settings' which will lead to the settings page of the plugin.
 
-4. Provide merchant publick key for Flutterwave, select the checkbox as per requirement. Save the settings.
+4. Provide merchant public key for Flutterwave, select the checkbox as per requirement. Save the settings.
 
 5. Select any course from course listing page.
 
